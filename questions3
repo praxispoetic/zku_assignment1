@@ -1,0 +1,19 @@
+Summarize key differences in application between SNARKs and STARKs in 100 words
+
+Given proof size differences, one would less likely expect to see STARKs used on-chain and more in off-chain applications where succinctness is perhaps less critical
+Given STARKs' lack of trusted setup - this eliminates risk of collusion and mishandling of toxic waste, so perhaps applications that are particularly privacy-intensive might opt for STARKs
+
+How is the trusted setup process different between Groth16 and PLONK?
+
+Since PLONK is a universal SNARK, this means that all circuits need only one trusted setup, whereas Groth16 requires a new setup/ceremony every time a smart contract is modified, which would consist of coordinating MPC publicly with as large of a base as possible to minimize collusion. 
+In applications where composability is less critical, but small proof size is more critical, Groth16 might be the preferred option (say, in the case of a bridge that uses non-upgradeable code for security purposes). In an application where composability is desired and frequent, using a universal SNARK such as PLONK might be the preferred option.
+
+Give an idea of how we can apply ZK to create unique usage for NFTs
+
+If we foresee a future where real estate titles, medical records, and other assets become tokenized, then these classes of NFTs will (legally and functionally) require various degrees of privacy protection to be adopted by various industries with a myriad of regulatory standards
+In the case of medical records, HIPAA compliance, health insurance companies, remote medical diagnosis could still be done on permissionless chains, as opposed to the heavily walled gardens we see today within the EMR industry. In the case of health insurance, I, as an insurer, would only need to know a patient's diagnosis ("output") and not necessarily all of the underlying information used to come to this conclusion ("private inputs")
+
+Bonus: give a novel idea on how we can apply ZK for Dao tooling (voting, but what else can ZK do?)
+
+Trying to think outside of voting mechanisms here, but there might be an opportunity to leverage DAOs for trusted setup ceremonies - similar to how PoS networks might encourage good behavior via slashing stake.  Minimize collusion by incentivizing good behavior within the DAO. 
+I also keep coming back to the idea of using ZK for bridge (and DAO treasury) security but need more time to think about this in more detail - this was one of the things that attracted me to ZK in the first place
